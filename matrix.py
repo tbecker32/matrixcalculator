@@ -67,10 +67,10 @@ def input_fields():
     edited_df = st.data_editor(dataframe, hide_index=True) # 2nd new thing
 
     if st.button("Reduce!"): # 3rd new thing
+        st.write("---")
         reduced = rowReduce(edited_df)
         reducedDataFrame = st.data_editor(reduced, hide_index=True)
 
-    st.write("---")
     st.write("---")
     st.write("Built by Thomas Becker :)")
 
