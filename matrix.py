@@ -70,4 +70,8 @@ def input_fields():
         reduced = rowReduce(edited_df)
         reducedDataFrame = st.data_editor(reduced, hide_index=True)
 
+    st.write("---")
+    st.write("---")
+    st.write("Built by Thomas Becker :)")
+
 input_fields()
