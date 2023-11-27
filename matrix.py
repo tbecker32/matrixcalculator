@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
-from fractions import Fraction
-#1 matrix calc from a 2d matrix
 
-arr = [[0, 3, 1, 1], [1, -1, 0, 1], [2, 4, -2, 1]]
+#1 matrix calc from a 2d matrix
 
 def rowAdd(arr1, scalar, arr2):
     newArr = []
@@ -15,12 +13,6 @@ def rowScale(arr1, scalar):
     for i in range(len(arr1)):
         arr1[i] *= scalar
     return arr1
-
-def printArr(array):
-    for a in array:
-        print(a)
-    print(" ")
-
 
 def rowReduce(arr):
     rows = len(arr)
@@ -50,26 +42,26 @@ def rowReduce(arr):
     return arr
 
 
-
 #2 format page that can build a matrix, take input from streamlit
 
 def input_fields():
     st.sidebar.header("Select your number of rows and columns:")
-    numRows = st.sidebar.number_input("Rows", min_value=1) # 1st new thing
+    numRows = st.sidebar.number_input("Rows", min_value=1) #NEW
     numCols = st.sidebar.number_input("Columns", min_value=1)
     st.subheader("Enter your matrix")
-    dataframe = []
+    df = []
     for i in range(numRows):
         d = []
         for j in range(numCols):
             d.append(0)
-        dataframe.append(d)
-    edited_df = st.data_editor(dataframe, hide_index=True) # 2nd new thing
+        df.append(d)
+    edited_df = st.data_editor(df, hide_index=True) #NEW
 
-    if st.button("Reduce!"): # 3rd new thing
+    if st.button("Reduce!"): #NEW
         st.write("---")
         reduced = rowReduce(edited_df)
-        reducedDataFrame = st.data_editor(reduced, hide_index=True)
+        reducedDataFrame = pd.DataFrame(reduced)
+        st.dataframe(reducedDataFrame, hide_index=True)
 
     st.write("---")
     st.write("Built by Thomas Becker :)")
