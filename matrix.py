@@ -55,7 +55,7 @@ def input_fields():
         for j in range(numCols):
             d.append(0)
         df.append(d)
-    edited_df = st.data_editor(df, hide_index=True) #NEW
+    edited_df = st.data_editor(df, hide_index=True, key="original") #NEW
 
     if st.button("Reduce!"): #NEW
         st.write("---")
